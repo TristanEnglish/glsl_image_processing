@@ -1,0 +1,33 @@
+hw06: Image processing
+
+Tristan English
+CSCI4239 Spring 2023
+
+I experimented with color shaders and was able to create some pretty cool effects!
+
+contrast.frag - adds contrast to the final image
+swap.frag - swaps colors from rgb to gbr
+inverse.frag - converts to inverse colors
+bwavg.frag - converts to greyscale using the average method (less effective)
+bwlum.frag - converts to greyscale using the luma method (weighted for actual color perception)
+red.frag/green.frag/blue.frag - applies a red/green/blue filter
+shift.frag - shifts the scene 100 pixels to the right
+
+Surprisingly, there are a ton of different algorithms to convert color images to greyscale, each with different pros and cons. Averaging is the most simple method (red + green + blue) / 3, but doesn't 
+account for the way we actually perceive colors. The luma method weights each color depending on how 
+strongly our eyes percieve the color, which looks better overall. I tested this in bwavg.frag and bwlum.frag.
+
+References:
+contrast shader: https://gsurma.medium.com/easy-filters-intro-to-gpu-pixel-shaders-156dac92b895
+greyscale: https://tannerhelland.com/2011/10/01/grayscale-image-algorithm-vb6.html
+
+Approximate time spent: 5 hours
+
+Key bindings
+  -          Increase # of passes
+  +/=        Increase # of passes
+  m          Toggle shader
+  arrows     Change view angle
+  PgDn/PgUp  Zoom in and out
+  0          Reset view angle
+  ESC        Exit
